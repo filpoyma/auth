@@ -6,6 +6,7 @@ import Login from '../components/SignIn';
 import HomePage from '../components/HomePage';
 import ProfilePage from '../components/ProfilePage';
 import { logOut } from '../store/auth/actions';
+import NewsPage from '../components/NewsPage';
 
 function MainRoute() {
   const isAuth = useSelector((state) => state.auth.isAuth);
@@ -22,6 +23,11 @@ function MainRoute() {
               <li className="nav-item">
                 <Link className="nav-link" to={'/'}>
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={'/news'}>
+                  News
                 </Link>
               </li>
 
@@ -57,6 +63,7 @@ function MainRoute() {
         <div className="auth-inner">
           <Routes>
             <Route exact path="/" element={<HomePage />} />
+            <Route exact path="/news" element={<NewsPage />} />
             <Route path="/sign-in" element={<Login />} />
             <Route
               path="/profile"
